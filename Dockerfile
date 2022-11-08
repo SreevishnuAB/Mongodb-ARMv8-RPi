@@ -10,7 +10,7 @@ RUN set -eux; \
 
 RUN apt-get -q update && apt-get install -y -q curl libssl-dev 
 
-COPY --chown=mongodb:mongodb ./bin/* .
+COPY --chown=mongodb:mongodb ./bin/* /usr/local/bin
 
 ENV MONGO_VERSION 6.0.2
 
@@ -20,4 +20,4 @@ ENV HOME /data/db
 
 EXPOSE 27017
 
-CMD ["./mongod", "--bind_ip_all"]
+CMD ["mongod", "--bind_ip_all"]
